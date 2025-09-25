@@ -8,7 +8,7 @@ def hola():
     return """
     <html>
         <head>
-            <title>Pepo Web Service</title>
+            <title>Servicio Web</title>
             <style>
                 body {
                     font-family: Arial, sans-serif;
@@ -34,8 +34,7 @@ def hola():
         </head>
         <body>
             <div>
-                <h1>Hola, bienvenido a Pepo Web Service</h1>
-                <p>Ana Karem Crespo López - 22031437</p>
+                <h1>Hola, soy omar, mamasota69_ en fortnite</h1>
             </div>
         </body>
     </html>
