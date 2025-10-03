@@ -67,9 +67,9 @@ def saludo():
 
     # Estructura: usamos el parámetro
     if nombre.lower() == "omar":
-        mensaje = "¡Bienvenido, Omar! Veo que eres el mamasota69_ en Fortnite 😎"
+        mensaje = "¡Bienvenido, Omar! Veo que eres  Mamasota69_ en el Fortnite Ggrr"
     else:
-        mensaje = f"Hola {nombre}, bienvenido a mi servicio web"
+        mensaje = f"Hola {nombre}, bienvenido a este servicio web Ggrr"
 
     # Respuesta en formato JSON
     return jsonify({
