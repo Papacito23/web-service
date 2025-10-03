@@ -1,15 +1,34 @@
 import os
-from flask import Flask
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-@app.route("/hola/<nombre>")
-def hola(nombre):
-    # Estructura: usamos el parámetro para decidir el mensaje
+# Ruta para devolver JSON (para Postman)
+@app.route("/saludo", methods=["GET"])
+def saludo_json():
+    nombre = request.args.get("nombre", "invitado")
+
     if nombre.lower() == "omar":
-        mensaje = "¡Bienvenido, crack de Fortnite!"
+        mensaje = "¡Bienvenido, Omar! Veo que eres el mamasota69_ en Fortnite 😎"
     else:
         mensaje = f"Hola {nombre}, bienvenido a mi servicio web"
+
+    return jsonify({
+        "usuario": nombre,
+        "mensaje": mensaje,
+        "status": "success"
+    })
+
+
+# Ruta para devolver HTML bonito (para navegador)
+@app.route("/saludo_html", methods=["GET"])
+def saludo_html():
+    nombre = request.args.get("nombre", "invitado")
+
+    if nombre.lower() == "omar":
+        mensaje = "¡Bienvenido, Omar! Veo que eres Mamasota69_ en el Fortnite Ggrr"
+    else:
+        mensaje = f"Hola {nombre}, bienvenido a este servicio web Ggrr"
 
     return f"""
     <html>
@@ -41,6 +60,7 @@ def hola(nombre):
         <body>
             <div>
                 <h1>{mensaje}</h1>
+                <p>Usuario: {nombre}</p>
             </div>
         </body>
     </html>
