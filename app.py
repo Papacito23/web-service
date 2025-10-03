@@ -3,14 +3,20 @@ from flask import Flask
 
 app = Flask(__name__)
 
-@app.route("/")
-def hola():
-    return """
+@app.route("/hola/<nombre>")
+def hola(nombre):
+    # Estructura: usamos el parámetro para decidir el mensaje
+    if nombre.lower() == "omar":
+        mensaje = "¡Bienvenido, crack de Fortnite!"
+    else:
+        mensaje = f"Hola {nombre}, bienvenido a mi servicio web"
+
+    return f"""
     <html>
         <head>
             <title>Servicio Web</title>
             <style>
-                body {
+                body {{
                     font-family: Arial, sans-serif;
                     background-color: #f0f8ff;
                     display: flex;
@@ -19,22 +25,22 @@ def hola():
                     height: 100vh;
                     margin: 0;
                     text-align: center;
-                }
-                h1 {
+                }}
+                h1 {{
                     color: #2e8b57;
                     font-size: 36px;
                     margin: 0;
-                }
-                p {
+                }}
+                p {{
                     color: #333;
                     font-size: 24px;
                     margin: 10px 0 0 0;
-                }
+                }}
             </style>
         </head>
         <body>
             <div>
-                <h1>Hola, soy omar, mamasota69_ en fortnite</h1>
+                <h1>{mensaje}</h1>
             </div>
         </body>
     </html>
